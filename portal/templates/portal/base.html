@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+
+    <style>
+        /* ===== RESET ===== */
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:#1e3a8a;
+            padding:15px 40px;
+        }
+
+        .logo-section{
+            display:flex;
+            align-items:center;
+            color:white;
+        }
+
+        .logo{
+            width:45px;
+            margin-right:10px;
+        }
+
+        .nav-links{
+            list-style:none;
+            display:flex;
+        }
+
+        .nav-links li{
+            margin-left:25px;
+        }
+
+        .nav-links a{
+            color:white;
+            text-decoration:none;
+            font-weight:bold;
+            transition:0.3s;
+        }
+
+        .nav-links a:hover{
+            color:#facc15;
+        }
+
+        /* ===== HERO IMAGE ===== */
+        .hero img{
+            width:100%;
+            height:350px;
+            object-fit:cover;
+        }
+
+        /* ===== CONTENT ===== */
+        .container{
+            padding:40px;
+            text-align:center;
+        }
+
+        .card-container{
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            margin-top:30px;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            width:250px;
+            border-radius:10px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer{
+            background:#111827;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <!-- Online logo image -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png" class="logo">
+            <h2>Student Portal</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HERO IMAGE ===== -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644" alt="Students">
+    </section>
+
+    <!-- ===== CONTENT ===== -->
+    <div class="container">
+        <h1>Welcome to Student Portal</h1>
+        <p>Manage courses, students, and academic information easily.</p>
+
+        <div class="card-container">
+
+            <div class="card">
+                <h3>Student Dashboard</h3>
+                <p>View academic progress and updates.</p>
+            </div>
+
+            <div class="card">
+                <h3>Courses</h3>
+                <p>Access enrolled courses and materials.</p>
+            </div>
+
+            <div class="card">
+                <h3>Results</h3>
+                <p>Check marks and performance reports.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2026 Student Portal | Developed by Student</p>
+    </footer>
+
+</body>
+</html>
