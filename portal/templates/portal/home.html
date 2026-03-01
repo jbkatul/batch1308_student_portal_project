@@ -1,0 +1,121 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<style>
+.hero-section {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b') no-repeat center center/cover;
+    height: 500px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.equal-card {
+    height: 100%;
+}
+</style>
+
+
+<!-- HERO SECTION -->
+<div class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+        <h1 class="display-4 font-weight-bold">Welcome to Student Portal</h1>
+        <p class="lead mb-4">
+            Manage Students, Courses and Information Easily.
+        </p>
+
+        <br>
+
+        <a href="#" class="btn btn-primary btn-lg mr-3">
+            Login
+        </a>
+
+        <a href="#" class="btn btn-outline-light btn-lg">
+            Registration
+        </a>
+    </div>
+</div>
+
+
+<!-- COURSES SECTION -->
+<div class="container mt-5">
+
+    <h3 class="text-center mb-4">Our Courses</h3>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4 d-flex">
+            <div class="card shadow text-center equal-card w-100">
+                <div class="card-body d-flex flex-column">
+                    <h5>Python</h5>
+                    <p class="flex-grow-1">Learn Python programming from basics to advanced.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary mt-auto">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4 d-flex">
+            <div class="card shadow text-center equal-card w-100">
+                <div class="card-body d-flex flex-column">
+                    <h5>Java</h5>
+                    <p class="flex-grow-1">Master Java and build enterprise applications.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary mt-auto">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4 d-flex">
+            <div class="card shadow text-center equal-card w-100">
+                <div class="card-body d-flex flex-column">
+                    <h5>Software Testing</h5>
+                    <p class="flex-grow-1">Manual & Automation testing concepts.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary mt-auto">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4 d-flex">
+            <div class="card shadow text-center equal-card w-100">
+                <div class="card-body d-flex flex-column">
+                    <h5>AI & ML</h5>
+                    <p class="flex-grow-1">Artificial Intelligence & Machine Learning basics.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary mt-auto">
+                        View More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
