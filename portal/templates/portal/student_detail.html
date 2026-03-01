@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+
+    {% if student %}
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="card-title">{{ student.name }}</h3>
+            <p><strong>ID:</strong> {{ student.id }}</p>
+            <p><strong>Course:</strong> {{ student.course }}</p>
+            <p><strong>Email:</strong> {{ student.email }}</p>
+
+            <a href="/students/" class="btn btn-secondary">Back</a>
+        </div>
+    </div>
+    {% else %}
+        <h4 class="text-danger">Student Not Found</h4>
+    {% endif %}
+
+</div>
+{% endblock %}
+

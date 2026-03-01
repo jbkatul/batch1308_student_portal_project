@@ -1,0 +1,52 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background: linear-gradient(to right, #667eea, #764ba2);
+    }
+
+    .custom-card {
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+        background-color: white;
+    }
+
+    .custom-card:hover {
+        transform: scale(1.03);
+    }
+
+    .black-text {
+        color: black;
+    }
+</style>
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card text-center shadow-lg p-4 custom-card" style="max-width: 500px;">
+
+        <div class="card-body">
+
+            <h1 class="card-title mb-3 black-text">
+                🎓 Welcome to Student Portal
+            </h1>
+
+            <p class="card-text fs-5 black-text">
+                Manage students easily using Django & Bootstrap.
+            </p>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+                 class="img-fluid mt-3 mb-4"
+                 width="180">
+
+            <br>
+
+            <a href="/students/" class="btn btn-warning btn-lg px-4 shadow">
+                View Students
+            </a>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
