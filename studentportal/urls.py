@@ -17,6 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-]
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+# Portal view path
+@app.route("/portal")
+def portal_view():
+    return render_template("student_list.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)

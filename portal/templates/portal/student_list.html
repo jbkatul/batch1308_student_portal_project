@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Portal</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, #667eea, #764ba2);
+        }
+
+        .portal-card {
+            border-radius: 15px;
+        }
+
+        .card-header {
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            color: white;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        table thead {
+            background-color: #343a40;
+            color: white;
+        }
+
+        .btn-view {
+            background-color: #20c997;
+            color: white;
+            border-radius: 20px;
+        }
+
+        .btn-view:hover {
+            background-color: #17a589;
+            color: white;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9fa;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <div class="card portal-card shadow-lg">
+        <div class="card-header text-center">
+            <h3>🎓 Student Portal</h3>
+        </div>
+
+        <div class="card-body bg-white">
+
+            <table class="table table-bordered table-striped text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentTable">
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    const students = [
+        {id: 101, name: "sharad", course: "Computer Science", email: "sharad@gmail.com"},
+        {id: 102, name: "sarthak", course: "Information Technology", email: "sarthak@gmail.com"},
+        {id: 103, name: "karan", course: "Electronics", email: "karan@gmail.com"},
+        {id: 104, name: "sumit", course: "Mechanical", email: "sumit@gmail.com"}
+    ];
+
+    const table = document.getElementById("studentTable");
+
+    students.forEach(student => {
+        table.innerHTML += `
+            <tr>
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td>${student.course}</td>
+                <td>${student.email}</td>
+                <td>
+                    <button class="btn btn-view btn-sm" onclick="viewStudent(${student.id})">
+                        View
+                    </button>
+                </td>
+            </tr>
+        `;
+    });
+
+    function viewStudent(id) {
+        const student = students.find(s => s.id === id);
+        alert(
+            "Student Details\n\n" +
+            "ID: " + student.id + "\n" +
+            "Name: " + student.name + "\n" +
+            "Course: " + student.course + "\n" +
+            "Email: " + student.email
+        );
+    }
+</script>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
