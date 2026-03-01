@@ -1,0 +1,15 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+<h2>Add Student</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" class="form-control mb-2" placeholder="Name" required>
+    <input type="text" name="course" class="form-control mb-2" placeholder="Course" required>
+    <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
+    <button type="submit" class="btn btn-success">Add Student</button>
+</form>
+
+{% endblock %}
