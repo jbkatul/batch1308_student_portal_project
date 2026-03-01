@@ -1,0 +1,46 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<h2 class="mb-4">Students</h2>
+
+<form method="GET" action="{% url 'students' %}" class="mb-4 d-flex">
+    <input type="text" name="search" class="form-control me-2" placeholder="Search student...">
+    <button class="btn btn-primary">Search</button>
+</form>
+
+<div class="card p-3">
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Photo</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for s in students %}
+        <tr>
+            <td>{{ s.id }}</td>
+            <td>
+            <img src="{{ s.photo }}" width="50" height="50" style="object-fit:cover; border-radius:50%;">
+            </td>
+            <td>{{ s.name }}</td>
+            <td> <p style="border-radius:15px; background-color:cyan;" >{{ s.course }}</p></td>
+            <td>{{ s.email }}</td>
+            <td>
+                <a href="{% url 'detail' s.id %}" class="btn btn-sm btn-outline-primary">View</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% if not students %}
+<p class="text-danger mt-3">No students found.</p>
+{% endif %}
+
+{% endblock %}
