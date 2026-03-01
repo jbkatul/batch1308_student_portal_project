@@ -1,0 +1,67 @@
+{% extends 'portal_s/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0">
+                
+                <div class="card-header bg-warning text-dark text-center">
+                    <h4>✏ Edit Student</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" name="name" 
+                                   class="form-control"
+                                   value="{{ student.name }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email"
+                                   class="form-control"
+                                   value="{{ student.email }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Age</label>
+                            <input type="number" name="age"
+                                   class="form-control"
+                                   value="{{ student.age }}" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Course</label>
+                            <input type="text" name="course"
+                                   class="form-control"
+                                   value="{{ student.course }}" required>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">
+                                💾 Update
+                            </button>
+
+                            <a href="{% url 'student_detail' student.id %}"
+                               class="btn btn-secondary">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
