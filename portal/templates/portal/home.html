@@ -34,43 +34,31 @@
     <div class="row g-4">
 
         <!-- Card 1 -->
-        <div class="col-md-4">
-            <div class="card shadow-lg border-0 h-100">
-                <div class="card-body text-center">
+        <div class="container mt-5">
+    <div class="row justify-content-center">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
                     <h5 class="card-title">View Students</h5>
-                    <p class="card-text">
-                        See the complete list of registered students.
-                    </p>
-                    <a href="/students/" class="btn btn-primary">Go</a>
+                    <p class="card-text">See the complete list of registered students.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary">Go</a>
                 </div>
             </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="col-md-4">
-            <div class="card shadow-lg border-0 h-100">
-                <div class="card-body text-center">
+        <div class="col-md-4 mb-4">
+            <div class="card shadow text-center">
+                <div class="card-body">
                     <h5 class="card-title">Add Student</h5>
-                    <p class="card-text">
-                        Add a new student record to the system.
-                    </p>
-                    <a href="/students/add/" class="btn btn-success">Add</a>
+                    <p class="card-text">Add a new student record to the system.</p>
+                    <a href="{% url 'add_student' %}" class="btn btn-success">Add</a>
                 </div>
             </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="col-md-4">
-            <div class="card shadow-lg border-0 h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title">Search Student</h5>
-                    <p class="card-text">
-                        Quickly find students by name.
-                    </p>
-                    <a href="/students/" class="btn btn-warning">Search</a>
-                </div>
-            </div>
-        </div>
+    </div>
+</div>
 
     </div>
 </div>
