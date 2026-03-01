@@ -1,0 +1,29 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<h3 class="mb-4">Students</h3>
+
+<div class="row">
+    {% for student in students %}
+    <div class="col-md-4 mb-3">
+        <div class="card student-card p-3 text-center">
+
+            <img src="{{ student.photo }}" class="student-img mx-auto">
+
+            <h5>{{ student.name }}</h5>
+            <p class="text-muted mb-2">{{ student.course }}</p>
+
+            <div>
+                <a href="/student/{{ student.id }}/" class="btn btn-primary btn-sm btn-custom">View</a>
+                <a href="/delete/{{ student.id }}/"
+                   class="btn btn-danger btn-sm btn-custom">
+                   Delete
+                </a>
+            </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
