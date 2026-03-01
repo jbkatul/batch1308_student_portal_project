@@ -1,0 +1,11 @@
+body {
+    background-color: #f4f6f9;
+}
+
+.card {
+    border-radius: 10px;
+}
+
+.navbar a {
+    text-decoration: none;
+}
