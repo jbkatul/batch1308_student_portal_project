@@ -1,0 +1,31 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Add Student</h2>
+
+    {% if message %}
+<div class="alert alert-success text-center">
+    {{ message }}
+</div>
+{% endif %}
+
+    <form method="POST" class="shadow p-4 bg-light rounded" style="max-width: 500px; margin:auto;">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" class="form-control" id="name" placeholder="Enter student name" required>
+        </div>
+        <div class="mb-3">
+            <label for="course" class="form-label">Course</label>
+            <input type="text" name="course" class="form-control" id="course" placeholder="Enter course" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+        <button type="submit" class="btn btn-success w-100">Add Student</button>
+    </form>
+</div>
+{% endblock %}

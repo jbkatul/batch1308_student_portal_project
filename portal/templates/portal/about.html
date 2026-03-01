@@ -1,0 +1,22 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg mx-auto" style="max-width: 700px;">
+        <div class="card-body text-center">
+            <h2 class="card-title mb-3">About Student Portal</h2>
+            <p class="card-text">
+                This is a simple Student Management Portal built using Django without a database.
+                All student data is stored temporarily in Python lists and dictionaries. You can:
+            </p>
+            <ul class="list-group list-group-flush text-start mt-3">
+                <li class="list-group-item">View all students in a table</li>
+                <li class="list-group-item">Add new students using a form</li>
+                <li class="list-group-item">Delete students from the list</li>
+                <li class="list-group-item">View individual student details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
