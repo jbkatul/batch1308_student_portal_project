@@ -1,0 +1,101 @@
+{% extends 'portal_s/base.html' %}
+
+{% block content %}
+
+<!-- Success Message -->
+{% if request.GET.success %}
+<div id="successMsg" 
+     class="alert alert-success text-center shadow-sm w-50 mx-auto mt-4 rounded-3">
+    ✅ {{ request.GET.success }}
+</div>
+
+<script>
+    setTimeout(function() {
+        const msg = document.getElementById("successMsg");
+        if(msg){
+            msg.style.transition = "opacity 0.5s";
+            msg.style.opacity = "0";
+            setTimeout(() => msg.remove(), 500);
+        }
+    }, 1500);
+</script>
+{% endif %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+
+                <!-- Header -->
+                <div class="bg-primary text-white text-center py-4">
+                    <h3 class="fw-bold mb-1">➕ Add New Student</h3>
+                    <p class="mb-0 small">Fill in the student details below</p>
+                </div>
+
+                <!-- Form Body -->
+                <div class="card-body p-4 bg-white">
+
+                    <form method="POST" action="{% url 'add_student' %}">
+                        {% csrf_token %}
+
+                        <!-- Student Name -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-primary">Student Name</label>
+                            <input type="text" 
+                                   name="name" 
+                                   class="form-control rounded-3 shadow-sm"
+                                   placeholder="Enter full name"
+                                   required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-primary">Email</label>
+                            <input type="email" 
+                                   name="email" 
+                                   class="form-control rounded-3 shadow-sm"
+                                   placeholder="Enter email address"
+                                   required>
+                        </div>
+
+                        <!-- Age -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-primary">Age</label>
+                            <input type="number" 
+                                   name="age" 
+                                   class="form-control rounded-3 shadow-sm"
+                                   placeholder="Enter age"
+                                   required>
+                        </div>
+
+                        <!-- Course -->
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-primary">Course</label>
+                            <input type="text" 
+                                   name="course" 
+                                   class="form-control rounded-3 shadow-sm"
+                                   placeholder="Enter course name"
+                                   required>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-center gap-3">
+                            <button type="submit" class="btn btn-primary px-4 shadow">
+                                💾 Save
+                            </button>
+
+                            <a href="{% url 'home' %}" class="btn btn-outline-primary px-4">
+                                Cancel
+                            </a>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

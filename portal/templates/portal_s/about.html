@@ -1,0 +1,60 @@
+{% extends 'portal_s/base.html' %}
+
+{% block content %}
+
+<style>
+    .about-bg {
+        background: linear-gradient(135deg, #0d6efd, #6610f2);
+        color: white;
+        padding: 60px 20px;
+        border-radius: 15px;
+    }
+</style>
+
+<div class="container mt-4">
+
+    <!-- Header Section -->
+    <div class="about-bg text-center mb-5">
+        <h1 class="display-5 fw-bold">ℹ About Student Portal</h1>
+        <p class="lead mt-3">
+            A simple and efficient system to manage student data digitally.
+        </p>
+    </div>
+
+    <!-- Content Section -->
+    <div class="row">
+
+        <div class="col-md-6">
+            <h3 class="text-primary">🎯 Our Mission</h3>
+            <p>
+                The Student Portal is designed to simplify student management
+                by maintaining records, tracking performance, and organizing
+                academic data efficiently.
+            </p>
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="text-success">🚀 Features</h3>
+            <ul>
+                <li>Student Registration</li>
+                <li>View Student Records</li>
+                <li>Add / Edit / Delete Students</li>
+                <li>Responsive Design</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Developer Section -->
+    <div class="card shadow mt-5">
+        <div class="card-body text-center">
+            <h4 class="text-info">👩‍💻 Developed By</h4>
+            <p>
+                This project is developed as part of a learning journey in Django and Web Development.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
