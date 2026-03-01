@@ -1,0 +1,30 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+
+    <!-- Bootstrap Card -->
+    <div class="card shadow-lg">
+        
+        <!-- Image Banner (fully visible) -->
+        <img src="{% static 'images/welcome.jpg' %}" 
+             class="card-img-top img-fluid" 
+             style="height:50vh; object-fit:contain;" 
+             alt="Welcome">
+
+        <!-- Card Body with Text -->
+        <div class="card-body text-center">
+            <h2 class="card-title mb-3">Welcome to Student Portal</h2>
+            <p class="card-text mb-3">
+                Manage students efficiently without a database using Python lists and dictionaries.  
+                Track student details, add new students, and search easily!
+            </p>
+
+            <!-- Optional Call-to-Action Buttons -->
+            <a href="#" class="btn btn-primary me-2">View Students</a>
+            <a href="#" class="btn btn-success">Add Student</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
