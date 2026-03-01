@@ -25,3 +25,5 @@ def add_student(request):
         })
 
     return render(request, "portal/add_student.html")
+
+    
