@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-t)hid&rs9be=z1fvdf*dc1m75ov_&9nap_l$f4*5f(g5#87t#j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,3 +121,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+ "https://pages-powerpoint-operated-airplane.trycloudflare.com"
+ ]

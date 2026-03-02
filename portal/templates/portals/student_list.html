@@ -1,0 +1,36 @@
+{% extends "portals/base.html" %}
+
+{% block title %}
+Student List
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center fw-bold">Student List</h2>
+
+    <div class="list-group shadow-sm">
+
+        {% for student in students %}
+            <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3 student-item">
+                
+                <div>
+                    <h5 class="mb-1 fw-semibold">{{ student.name }}</h5>
+                    <small class="text-muted">Student ID: {{ student.id }}</small>
+                </div>
+
+                <a href="{% url 'student_detail' student.id %}" 
+                   class="btn btn-primary px-4">
+                    View Details
+                </a>
+
+            </div>
+        {% empty %}
+            <div class="list-group-item text-center">
+                No students added yet.
+            </div>
+        {% endfor %}
+
+    </div>
+</div>
+{% endblock %}

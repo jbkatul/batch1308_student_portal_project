@@ -1,0 +1,48 @@
+{% extends 'portals/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Welcome to Student Portal</h1>
+        <p class="lead text-muted mt-3">
+            This is the homepage built using Django and Bootstrap.
+        </p>
+        <a href="#" class="btn btn-primary btn-lg mt-3">Get Started</a>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row text-center">
+
+            <div class="col-md-4">
+                <div class="card shadow-sm p-3">
+                    <h5>Fast</h5>
+                    <p>Quick development using Bootstrap components.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm p-3">
+                    <h5>Responsive</h5>
+                    <p>Works perfectly on mobile, tablet, and desktop.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow-sm p-3">
+                    <h5>Clean Design</h5>
+                    <p>Simple and modern layout structure.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

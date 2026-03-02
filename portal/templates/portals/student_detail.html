@@ -1,0 +1,27 @@
+{% extends "portals/base.html" %}
+
+{% block title %}
+Student Details
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h3 class="card-title">{{ student.name }}</h3>
+
+            <p class="card-text">
+                <strong>ID:</strong> {{ student.id }} <br>
+                <strong>Course:</strong> {{ student.course }} <br>
+                <strong>Email:</strong> {{ student.email }}
+            </p>
+
+            <a href="{% url 'student_list' %}" class="btn btn-secondary">
+                Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

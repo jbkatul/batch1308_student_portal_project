@@ -1,0 +1,72 @@
+{% extends "portals/base.html" %}
+
+{% block title %} Add Student {% endblock %}
+
+{% block content %}
+
+<!-- SweetAlert CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Add Student</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST" onsubmit="return handleSubmit(event)">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Course</label>
+                            <input type="text" name="course" class="form-control" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-success w-100">
+                            Add Student
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+function handleSubmit(event) {
+    event.preventDefault();   // stop immediate submit
+
+    Swal.fire({
+        title: "Student Added!",
+        text: "Student has been added successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+        confirmButtonColor: "#28a745"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            event.target.submit();   // submit after popup
+        }
+    });
+
+    return false;
+}
+</script>
+
+{% endblock %}
