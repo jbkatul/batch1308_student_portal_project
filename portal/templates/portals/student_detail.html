@@ -7,19 +7,45 @@ Student Details
 {% block content %}
 
 <div class="container mt-5">
-    <div class="card shadow">
-        <div class="card-body">
-            <h3 class="card-title">{{ student.name }}</h3>
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
 
-            <p class="card-text">
-                <strong>ID:</strong> {{ student.id }} <br>
-                <strong>Course:</strong> {{ student.course }} <br>
-                <strong>Email:</strong> {{ student.email }}
-            </p>
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4 class="mb-0">Student Details</h4>
+                </div>
 
-            <a href="{% url 'student_list' %}" class="btn btn-secondary">
-                Back to List
-            </a>
+                <div class="card-body p-4">
+
+                    <h3 class="fw-bold text-center mb-4">
+                        {{ student.name }}
+                    </h3>
+
+                    <div class="mb-3">
+                        <strong>ID:</strong> {{ student.id }}
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Course:</strong> {{ student.course }}
+                    </div>
+
+                    <div class="mb-4">
+                        <strong>Email:</strong> {{ student.email }}
+                    </div>
+
+                    <div class="d-grid gap-2">
+                        <a href="{% url 'student_list' %}" class="btn btn-secondary">
+                            Back to List
+                        </a>
+
+                        <a href="{% url 'add_student' %}" class="btn btn-outline-primary">
+                            Add Another Student
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
