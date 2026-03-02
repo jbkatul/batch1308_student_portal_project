@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#60a5fa"/>
+      <stop offset="1" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="40" rx="8" fill="#0f172a"/>
+  <g transform="translate(10,8)">
+    <circle cx="12" cy="12" r="10" fill="url(#g)" />
+    <g transform="translate(30,2)">
+      <text x="0" y="18" font-family="Inter, sans-serif" font-size="16" font-weight="700" fill="#ffffff">StudentPortal</text>
+    </g>
+  </g>
+</svg>
