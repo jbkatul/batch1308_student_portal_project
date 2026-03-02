@@ -1,0 +1,28 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Add Student | Student Portal{% endblock %}
+
+{% block content %}
+<h2 class="mb-4 text-center">Add New Student</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="name" class="form-label">Student Name</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Enter student name">
+    </div>
+    <div class="mb-3">
+        <label for="roll" class="form-label">Roll Number</label>
+        <input type="text" class="form-control" id="roll" name="roll" placeholder="Enter roll number">
+    </div>
+    <div class="mb-3">
+        <label for="branch" class="form-label">Branch</label>
+        <input type="text" class="form-control" id="branch" name="branch" placeholder="Enter branch">
+    </div>
+    <div class="mb-3">
+        <label for="photo" class="form-label">Student Photo URL</label>
+        <input type="text" class="form-control" id="photo" name="photo" placeholder="Enter image URL">
+    </div>
+    <button type="submit" class="btn btn-success">Add Student</button>
+</form>
+{% endblock %}

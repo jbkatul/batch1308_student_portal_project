@@ -1,0 +1,47 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Home | Student Portal{% endblock %}
+
+{% block content %}
+<!-- Hero / Jumbotron Section -->
+<div class="p-5 mb-4 bg-light rounded-3 text-center">
+    <div class="container py-5">
+        <h1 class="display-4">Welcome to Student Portal</h1>
+        <p class="lead">Manage your students efficiently. View, add, and track all student information from one place.</p>
+        <a href="{% url 'student_list' %}" class="btn btn-primary btn-lg">View Students</a>
+    </div>
+</div>
+
+<!-- Feature Cards Section -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Manage Students</h5>
+                <p class="card-text">View all students in an organized way using the student list feature.</p>
+                <a href="{% url 'student_list' %}" class="btn btn-outline-primary">Go</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">Add Student</h5>
+                <p class="card-text">Easily add new students using the Add Student form with all necessary details.</p>
+                <a href="{% url 'add_student' %}" class="btn btn-outline-success">Add Now</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <h5 class="card-title">About Portal</h5>
+                <p class="card-text">Learn more about the portal and its features that help manage student information efficiently.</p>
+                <a href="{% url 'about' %}" class="btn btn-outline-info">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
