@@ -1,0 +1,59 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-lg border-0 rounded-4">
+                
+                <div class="card-header bg-primary text-white text-center rounded-top-4">
+                    <h3 class="mb-0">Add New Student</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Student Name</label>
+                            <input type="text" name="name" 
+                                   class="form-control rounded-3" 
+                                   placeholder="Enter student name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Course</label>
+                            <input type="text" name="course" 
+                                   class="form-control rounded-3" 
+                                   placeholder="Enter course name" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Email Address</label>
+                            <input type="email" name="email" 
+                                   class="form-control rounded-3" 
+                                   placeholder="Enter email address" required>
+                        </div>
+
+                        <button type="submit" 
+                                class="btn btn-success w-100 rounded-3">
+                            ➕ Add Student
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="card-footer text-center text-muted">
+                    Please fill all details correctly.
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
