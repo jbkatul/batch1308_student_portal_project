@@ -1,0 +1,21 @@
+{% extends "portal/base.html" %}
+
+{% block title %}{{ student.name }} | Student Portal{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card text-center">
+            <img src="{{ student.photo }}" class="card-img-top" alt="{{ student.name }}">
+            <div class="card-body">
+                <h3 class="card-title">{{ student.name }}</h3>
+                <p class="card-text">
+                    <strong>Roll Number:</strong> {{ student.roll }}<br>
+                    <strong>Branch:</strong> {{ student.branch }}
+                </p>
+                <a href="{% url 'student_list' %}" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
