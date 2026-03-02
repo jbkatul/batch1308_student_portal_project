@@ -1,0 +1,41 @@
+{% extends 'portals/base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="bg-light py-5">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Welcome to Student Portal</h1>
+        <p class="lead text-muted mt-3">
+            Manage student records easily using Django and Bootstrap.
+        </p>
+
+        <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'add_student' %}" class="btn btn-success btn-lg px-4">
+                ➕ Add Student
+            </a>
+
+            <a href="{% url 'student_list' %}" class="btn btn-primary btn-lg px-4">
+                📋 View Students
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- OPTIONAL INFO SECTION -->
+<section class="py-5">
+    <div class="container text-center">
+        <div class="card shadow-sm p-4">
+            <h4 class="fw-semibold mb-3">Student Management System</h4>
+            <p class="text-muted mb-0">
+                Add new students, view student details, and manage records efficiently.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

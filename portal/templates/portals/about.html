@@ -1,0 +1,113 @@
+{% extends "portals/base.html" %}
+
+{% block title %}
+About | Student Portal
+{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="bg-primary text-white py-5 text-center">
+    <div class="container">
+        <h1 class="fw-bold display-5">About Student Portal</h1>
+        <p class="lead mt-3">
+            A clean and efficient system to manage student records with ease.
+        </p>
+    </div>
+</section>
+
+<!-- ===== ABOUT SECTION ===== -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center gy-4">
+
+            <div class="col-lg-6">
+                <h2 class="fw-bold mb-3">Who We Are</h2>
+
+                <p class="text-muted">
+                    Student Portal is a web-based application developed using 
+                    <strong>Django</strong> and <strong>Bootstrap</strong>.
+                    It helps manage student information in a structured and organized way.
+                </p>
+
+                <p class="text-muted">
+                    Users can add new students, view student records, and access 
+                    detailed information easily through a clean and responsive interface.
+                </p>
+
+                <div class="mt-4">
+                    <a href="{% url 'student_list' %}" class="btn btn-outline-primary me-2">
+                        View Students
+                    </a>
+                    <a href="{% url 'add_student' %}" class="btn btn-primary">
+                        Add Student
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-center">
+                <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b"
+                     class="img-fluid rounded shadow"
+                     alt="Student Management System">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURES SECTION ===== -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-5">Core Features</h2>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 p-4">
+                    <div class="mb-3 fs-1 text-primary">➕</div>
+                    <h5 class="fw-bold">Add Students</h5>
+                    <p class="text-muted mb-0">
+                        Quickly insert new student records into the system.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 p-4">
+                    <div class="mb-3 fs-1 text-success">📋</div>
+                    <h5 class="fw-bold">View Records</h5>
+                    <p class="text-muted mb-0">
+                        Organized table view of all registered students.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm h-100 p-4">
+                    <div class="mb-3 fs-1 text-danger">🔎</div>
+                    <h5 class="fw-bold">Detailed Info</h5>
+                    <p class="text-muted mb-0">
+                        Access full details of each student easily.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold mb-3">Ready to Get Started?</h3>
+        <p class="text-muted mb-4">
+            Start managing your students in a smarter and faster way.
+        </p>
+
+        <a href="{% url 'add_student' %}" class="btn btn-success btn-lg px-4">
+            Add Your First Student
+        </a>
+    </div>
+</section>
+
+{% endblock %}
