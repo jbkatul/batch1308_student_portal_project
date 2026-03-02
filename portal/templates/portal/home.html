@@ -1,0 +1,10 @@
+
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<main style="padding:24px">
+    <h1>Welcome to the Student Portal</h1>
+    <p>This is a starter home page. Use the navigation to explore.</p>
+    <p><a href="{% url 'portal:student_list' %}">View students</a></p>
+</main>
+{% endblock %}
