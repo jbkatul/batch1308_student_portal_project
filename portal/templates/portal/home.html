@@ -1,0 +1,83 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<div class="p-5 mb-5 text-center rounded-4 shadow-lg"
+     style="background: linear-gradient(135deg, #4e73df, #1cc88a); color:white;">
+
+    <h1 class="display-4 fw-bold mb-3">Welcome to Student Portal 🎓</h1>
+
+    <p class="lead">
+        A smart and simple platform to manage student information 
+        easily, quickly, and efficiently.
+    </p>
+
+    <div class="mt-4">
+        <a href="/students/" class="btn btn-light btn-lg px-4 me-3 shadow">
+            📋 View Students
+        </a>
+
+        <a href="/add/" class="btn btn-outline-light btn-lg px-4 shadow">
+            ➕ Add Student
+        </a>
+    </div>
+</div>
+
+
+<div class="text-center mb-4">
+    <h2 class="fw-bold text-primary">Our Features</h2>
+    <p class="text-muted">Everything you need to manage students efficiently</p>
+</div>
+
+
+<div class="row text-center">
+
+
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+            <div class="mb-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" width="70">
+            </div>
+            <h4 class="fw-bold text-primary">Student Management</h4>
+            <p class="text-muted">
+                View and manage student records in a clean and organized table format.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+            <div class="mb-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/2920/2920277.png" width="70">
+            </div>
+            <h4 class="fw-bold text-success">Add New Students</h4>
+            <p class="text-muted">
+                Easily add new students with a simple and user-friendly form.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card border-0 shadow-lg p-4 h-100 rounded-4">
+            <div class="mb-3">
+                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" width="70">
+            </div>
+            <h4 class="fw-bold text-warning">Search & View</h4>
+            <p class="text-muted">
+                Quickly search students and view detailed information in seconds.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<div class="mt-5 p-4 bg-light rounded-4 shadow text-center">
+    <h4 class="fw-bold text-dark">Why Choose Student Portal?</h4>
+    <p class="text-muted">
+        ✔ Simple Interface &nbsp; | &nbsp; 
+        ✔ Fast Performance &nbsp; | &nbsp; 
+        ✔ Easy to Use &nbsp; | &nbsp; 
+        ✔ Organized Data Management
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card border-0 shadow-lg rounded-4 text-center p-4">
+
+                <div class="mb-3">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+                         width="100" class="img-fluid">
+                </div>
+
+              
+                <h3 class="fw-bold text-primary mb-3">
+                    {{ student.name }}
+                </h3>
+
+                <hr>
+
+        
+                <div class="text-start mt-3">
+                    <p class="fs-5">
+                        <strong>📘 Course:</strong> {{ student.course }}
+                    </p>
+
+                    <p class="fs-5">
+                        <strong>📧 Email:</strong> {{ student.email }}
+                    </p>
+                </div>
+
+                <div class="mt-4">
+                    <a href="/students/" class="btn btn-secondary px-4 me-2">
+                        ⬅ Back to List
+                    </a>
+
+                    <a href="/add/" class="btn btn-success px-4">
+                        ➕ Add New
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

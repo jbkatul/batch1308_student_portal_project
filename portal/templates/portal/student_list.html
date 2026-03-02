@@ -1,0 +1,69 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+
+  
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold">📋 Student List</h2>
+        <a href="/add/" class="btn btn-success">
+            ➕ Add New Student
+        </a>
+    </div>
+
+    <form method="GET" action="/search/" class="mb-4">
+        <div class="input-group shadow-sm">
+            <input type="text" name="q" class="form-control"
+                   placeholder="🔍 Search student by name">
+            <button class="btn btn-primary">
+                Search
+            </button>
+        </div>
+    </form>
+
+
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-0">
+
+            <table class="table table-hover mb-0 text-center">
+                <thead class="table-primary">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.id }}</td>
+                        <td class="fw-semibold">{{ student.name }}</td>
+                        <td>{{ student.course }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>
+                            <a href="/student/{{ student.id }}/"
+                               class="btn btn-sm btn-outline-success">
+                                👁 View
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5" class="text-center text-danger p-4">
+                            ❌ No Students Found
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
