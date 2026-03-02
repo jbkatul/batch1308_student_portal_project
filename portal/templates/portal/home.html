@@ -1,0 +1,79 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Home - Student Portal{% endblock %}
+
+{% block content %}
+
+<div class="hero-section text-center text-white">
+    <div class="hero-card mx-auto">
+
+        <h1 class="hero-title mb-3">
+            Welcome to the Student Portal
+        </h1>
+
+        <p class="hero-subtitle mb-4">
+            Manage student records easily, add new entries, and explore details —
+            all in one modern dashboard.
+        </p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'student_list' %}" class="btn btn-primary btn-lg px-4">
+                View Students
+            </a>
+
+            <a href="{% url 'add_student' %}" class="btn btn-outline-light btn-lg px-4">
+                Add Student
+            </a>
+        </div>
+
+    </div>
+</div>
+
+
+<div class="container mt-5">
+    <div class="row g-4">
+
+        <!-- Card 1 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">View Students</h5>
+                    <p class="card-text">
+                        See the complete list of registered students.
+                    </p>
+                    <a href="/students/" class="btn btn-primary">Go</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Add Student</h5>
+                    <p class="card-text">
+                        Add a new student record to the system.
+                    </p>
+                    <a href="/students/add/" class="btn btn-success">Add</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Search Student</h5>
+                    <p class="card-text">
+                        Quickly find students by name.
+                    </p>
+                    <a href="/students/" class="btn btn-warning">Search</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+

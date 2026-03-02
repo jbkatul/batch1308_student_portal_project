@@ -1,0 +1,45 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Add Student - Student Portal{% endblock %}
+
+{% block content %}
+
+<div class="form-wrapper">
+
+    <div class="glass-card p-5 mx-auto form-card">
+
+        <h2 class="text-white text-center mb-4 fw-bold">
+            Add New Student
+        </h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-floating mb-4">
+                <input type="text" name="name" class="form-control custom-input" id="name" placeholder="Name" required>
+                <label for="name">Full Name</label>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input type="email" name="email" class="form-control custom-input" id="email" placeholder="Email" required>
+                <label for="email">Email Address</label>
+            </div>
+
+            <div class="form-floating mb-4">
+                <input type="text" name="course" class="form-control custom-input" id="course" placeholder="Course" required>
+                <label for="course">Course</label>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg px-5">
+                    Save Student
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
