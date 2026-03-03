@@ -1,0 +1,66 @@
+{% extends 'portal/base.html' %}
+{% block title %}Student Detail{% endblock %}
+
+{% block content %}
+<div class="mb-4">
+    <a href="{% url 'student_list' %}"
+        class="text-decoration-none text-muted d-inline-flex align-items-center gap-2 hover-text-primary transition">
+        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18">
+            </path>
+        </svg>
+        Back to Directory
+    </a>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="glass-card position-relative overflow-hidden">
+            <!-- Decorative circle -->
+            <div class="position-absolute top-0 end-0 rounded-circle"
+                style="width: 200px; height: 200px; background: var(--accent-gradient); filter: blur(60px); opacity: 0.3; transform: translate(30%, -30%);">
+            </div>
+
+            <div class="d-flex align-items-center gap-4 mb-5 position-relative">
+                <div class="rounded-circle d-flex align-items-center justify-content-center text-white display-4 fw-bolder shadow-lg"
+                    style="width: 100px; height: 100px; background: var(--accent-gradient);">
+                    {{ student.name|slice:":1" }}
+                </div>
+                <div>
+                    <h2 class="mb-1 text-dark">{{ student.name }}</h2>
+                    <span
+                        class="badge bg-secondary bg-opacity-10 text-primary border border-primary border-opacity-25 px-3 py-2 rounded-pill">
+                        Student ID: #{{ student.id }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="row g-4 position-relative">
+                <div class="col-sm-6">
+                    <div class="p-4 rounded-4" style="background: #F8FAFC; border: 1px solid var(--surface-border);">
+                        <p class="text-muted small text-uppercase fw-bold mb-1">Age</p>
+                        <p class="fs-4 text-dark font-weight-bold mb-0">{{ student.age }} years old</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="p-4 rounded-4" style="background: #F8FAFC; border: 1px solid var(--surface-border);">
+                        <p class="text-muted small text-uppercase fw-bold mb-1">Course</p>
+                        <p class="fs-4 text-dark font-weight-bold mb-0 text-truncate">{{ student.course }}</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .hover-text-primary:hover {
+        color: var(--accent-primary) !important;
+    }
+
+    .transition {
+        transition: all 0.3s ease;
+    }
+</style>
+{% endblock %}
