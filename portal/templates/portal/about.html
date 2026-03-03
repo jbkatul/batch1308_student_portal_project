@@ -1,0 +1,51 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+<style>
+    body {
+        background: linear-gradient(to right, #74ebbe, #cface5);
+    }
+</style>
+
+<div class="container mt-5">
+    <div style="background: linear-gradient(to right, #74d3eb, #ace1e5);">
+
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body text-center p-5">
+
+            <h2 class="card-title mb-4 text-primary fw-bold">
+                About Student Portal
+            </h2>
+
+            <p class="card-text fs-5">
+                This Student Portal project is developed using 
+                <strong>Django Framework</strong> and 
+                <strong>Bootstrap</strong>.
+            </p>
+
+            <p class="mb-4">
+                It helps to manage student details like:
+            </p>
+
+            <ul class="list-group mb-4">
+                <li class="list-group-item">✔ View Students</li>
+                <li class="list-group-item">✔ Add Student</li>
+                <li class="list-group-item">✔ Search Student</li>
+                <li class="list-group-item">✔ Student Detail Page</li>
+            </ul>
+
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+                 class="img-fluid mb-4"
+                 width="150">
+
+            <br>
+
+            <a href="/" class="btn btn-primary px-4">Back to Home</a>
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
