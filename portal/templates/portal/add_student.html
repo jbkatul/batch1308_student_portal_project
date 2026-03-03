@@ -1,0 +1,41 @@
+{% extends 'portal/base.html' %}
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
+        <div class="glass-card">
+            <div class="text-center mb-4">
+                <h2 class="mb-2">Add <span class="text-gradient">Student</span></h2>
+                <p class="text-muted">Enter the details of the new student below.</p>
+            </div>
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase ms-1">Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="e.g. John Doe" required>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-muted small fw-bold text-uppercase ms-1">Age</label>
+                    <input type="number" name="age" class="form-control" placeholder="e.g. 20" required>
+                </div>
+
+                <div class="mb-5">
+                    <label class="form-label text-muted small fw-bold text-uppercase ms-1">Course Enrolled</label>
+                    <input type="text" name="course" class="form-control" placeholder="e.g. Computer Science" required>
+                </div>
+
+                <button type="submit" class="btn-modern w-100 d-flex justify-content-center align-items-center gap-2">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Save Student Record
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

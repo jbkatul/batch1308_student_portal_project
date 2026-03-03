@@ -1,78 +1,332 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Django Bootstrap Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A premium student portal for modern academia.">
+    <title>{% block title %}Student Portal{% endblock %}</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap (For Grid/Base utils but mostly overridden) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F8FAFC;
+            --surface-color: #FFFFFF;
+            --surface-border: #E2E8F0;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --accent-primary: #4F46E5;
+            --accent-glow: rgba(79, 70, 229, 0.25);
+            --accent-gradient: linear-gradient(135deg, #4F46E5, #9333EA, #E11D48);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            background-image:
+                radial-gradient(circle at 10% 40%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 60%, rgba(225, 29, 72, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .brand-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        /* Navbar Styling */
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.85) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar-brand span {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-link {
+            color: var(--text-muted) !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Clean White Cards */
+        .glass-card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Forms & Inputs */
+        .form-control {
+            background: #F8FAFC;
+            border: 1px solid var(--surface-border);
+            color: var(--text-main) !important;
+            font-weight: 500;
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            background: #FFFFFF;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+
+        .form-control::placeholder {
+            color: #94A3B8;
+            font-weight: 400;
+        }
+
+        .form-label {
+            color: var(--text-main);
+        }
+
+        /* Buttons */
+        .btn-modern {
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            border-radius: 10px;
+            padding: 0.8rem 1.8rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+        }
+
+        .btn-modern::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #9333EA, #E11D48, #4F46E5);
+            border-radius: 10px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-modern:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px var(--accent-glow);
+            color: white;
+        }
+
+        .btn-modern:hover::after {
+            opacity: 1;
+        }
+
+        .text-white {
+            color: var(--surface-color) !important;
+        }
+
+        /* Tables */
+        .table-modern {
+            color: var(--text-main);
+            border-collapse: separate;
+            border-spacing: 0 10px;
+        }
+
+        .table-modern th {
+            border: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .table-modern td {
+            background: var(--surface-color);
+            border-top: 1px solid var(--surface-border);
+            border-bottom: 1px solid var(--surface-border);
+            padding: 1rem 1.5rem;
+            vertical-align: middle;
+            color: var(--text-main);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
+        }
+
+        .table-modern tr td:first-child {
+            border-left: 1px solid var(--surface-border);
+            border-top-left-radius: 14px;
+            border-bottom-left-radius: 14px;
+        }
+
+        .table-modern tr td:last-child {
+            border-right: 1px solid var(--surface-border);
+            border-top-right-radius: 14px;
+            border-bottom-right-radius: 14px;
+        }
+
+        .table-modern tbody tr {
+            transition: all 0.3s ease;
+        }
+
+        .table-modern tbody tr:hover td {
+            background: #F8FAFC;
+            transform: scale(1.005);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Footer */
+        .modern-footer {
+            margin-top: auto;
+            background: #FFFFFF;
+            border-top: 1px solid var(--surface-border);
+            padding: 2rem 0;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">MySite</a>
+    <nav class="navbar navbar-expand-lg glass-nav">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#gradient)" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6366f1" />
+                            <stop offset="100%" stop-color="#ec4899" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                Student<span>Portal</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-2">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'student_list' %}">Students</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'add_student' %}">Add Student</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
+    <div class="container mt-5 mb-5 flex-grow-1">
+        <div class="animate-fade-up">
+            {% block content %}{% endblock %}
         </div>
     </div>
-</nav>
 
-<!-- CARDS SECTION -->
-<div class="container mt-5">
-    <div class="row">
-
-        <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">Card One</h5>
-                    <p class="card-text">This page is made using Django + Bootstrap.</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
+    <footer class="modern-footer text-center">
+        <div class="container">
+            <p class="mb-0">© 2026 Student Portal. All rights reserved.</p>
         </div>
+    </footer>
 
-        <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">Card Two</h5>
-                    <p class="card-text">All content is inside base.html.</p>
-                    <a href="#" class="btn btn-success">Explore</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-body">
-                    <h5 class="card-title">Card Three</h5>
-                    <p class="card-text">Simple and clean UI.</p>
-                    <a href="#" class="btn btn-warning">Details</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

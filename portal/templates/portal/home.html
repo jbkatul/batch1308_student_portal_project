@@ -1,0 +1,24 @@
+{% extends 'portal/base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center py-5">
+    <div
+        class="badge bg-secondary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4 border border-primary border-opacity-25">
+        ✨ Welcome to the Future of Education
+    </div>
+    <h1 class="display-3 fw-bolder mb-4">
+        Discover <span class="text-gradient">Information</span><br>
+        in a Digital Era
+    </h1>
+    <p class="lead text-muted mx-auto" style="max-width: 600px;">
+        Experience a seamless and beautiful interface for managing your academic records, schedules, and scholarship
+        information.
+    </p>
+    <div class="mt-5 d-flex gap-3 justify-content-center">
+        <a href="{% url 'add_student' %}" class="btn-modern text-decoration-none">Get Started</a>
+        <a href="{% url 'student_list' %}" class="btn btn-outline-primary rounded-3 px-4 py-2"
+            style="font-family: 'Outfit', sans-serif; font-weight: 500;">View Directory</a>
+    </div>
+</div>
+{% endblock %}
