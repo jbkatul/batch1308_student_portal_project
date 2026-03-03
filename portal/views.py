@@ -1,43 +1,75 @@
 from django.shortcuts import render,redirect
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.decorators import login_required
+from .models import Student
 
+def registration(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        pass1 = request.POST.get("pass1")
+        pass2 = request.POST.get("pass2")
+        
+        if pass1 != pass2:
+            return render(request, "portal/registration.html", {"mismatch":"Passwords do not match"})
+        else:
+            if User.objects.filter(username = username, email = email).exists():
+                return render(request, "portal/registration.html", {"both_taken":"Username and email has been taken already"})
+            elif User.objects.filter(email = email).exists():
+                return render(request, "portal/registration.html", {"email_taken": "Email has been already registered you may login"})
+            elif User.objects.filter(username = username).exists():
+                return render(request, "portal/registration.html", {"U_taken":"Username is already taken please use another one"})
+        
+            user = User.objects.create_user(
+                username = username,
+                email = email,
+                password = pass1
+                )
+        
+            user.save()
+            return redirect('login')
+
+    return render(request, "portal/registration.html")
+
+def login_view(request):
+    if request.method=="POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            auth_login(request, user)
+            return redirect("home")
+        else:
+            return render(request, "portal/login.html", {"error":"Invalid Username of Password"})
+    return render(request, "portal/login.html")
+
+def logout(request):
+    return render(request, "portal/login.html")
+
+@login_required
 def home(request):
-    return render(request, "portal/home.html", {
-        "student_count": len(student_db)})
+    students = Student.objects.count()
+    return render(request, "portal/home.html", {"student_count": students})
+
+@login_required
 def about_us(request):
     return render(request, "portal/about.html")
 
 
-students = [
-    {"id": 1, 
-     "name": "Narendra", 
-     "course": "Django", 
-     "email": "narendra@gmail.com", 
-     "photo":"https://th.bing.com/th/id/R.978b5f5e2c4b39de1c4a887310518134?rik=ysCyR3%2bNP08lDA&riu=http%3a%2f%2fi.huffpost.com%2fgen%2f4459084%2foriginal.jpg&ehk=KdYL%2bOcs1y5xC5tbCspW47E9IUieGx4Q6UXeqQL9KOI%3d&risl=&pid=ImgRaw&r=0"},
-
-
-    {"id": 2, 
-     "name": "Rahul",
-     "course": "Python", 
-     "email": "rahul@gmail.com", 
-     "photo":"https://akm-img-a-in.tosshub.com/businesstoday/images/story/202303/rahul-g-1200-sixteen_nine.jpg"},
-
-]
-student_db = students.copy()
+@login_required
 def student_list(request):
     search = request.GET.get("search")
-    students_data = student_db
+    students_data = Student.objects.all()
 
     if search:
-        students_data = [
-            s for s in student_db
-            if search.lower() in s["name"].lower()
-        ]
+        students_data = students_data.filter(name__icontains=search)
 
     return render(request, "portal/student_list.html", {"students": students_data})
 
 
-
+@login_required
 def add_student(request):
     if request.method == "POST":
         name = request.POST.get("name")
@@ -46,31 +78,28 @@ def add_student(request):
         photo = request.FILES.get("photo")
 
         photo_url = None
-
         if photo:
             fs = FileSystemStorage()
             filename = fs.save(photo.name, photo)
             photo_url = fs.url(filename)
 
-        student = {
-            "id": len(student_db) + 1,
-            "name": name,
-            "course": course,
-            "email": email,
-            "photo": photo_url
-        }
-
-        student_db.append(student)
+        
+        student = Student.objects.create(
+            name=name,
+            course=course,
+            email=email,
+            photo=photo_url
+        )
+        student.save()
 
         return redirect("students")
 
     return render(request, "portal/add_student.html")
 
+
+@login_required
 def student_detail(request, id):
-    for s in student_db:
-        if s["id"] == id:
-            student = s
-            break
+    student = Student.objects.get(id=id)
     return render(request, "portal/student_detail.html", {"student": student})
 
 

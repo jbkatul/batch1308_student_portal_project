@@ -14,13 +14,22 @@
 
     <div class="mb-3">
         <label>Course</label>
-        <input type="text" name="course" class="form-control" required>
+        <select name="course" class="form-select" required>
+            <option value="">-- Select a Course --</option>
+            <option value="Python">Python</option>
+            <option value="Django">Django</option>
+            <option value="Java">Java</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Machine Learning">Machine Learning</option>
+        </select>
     </div>
 
     <div class="mb-3">
         <label>Email</label>
         <input type="email" name="email" class="form-control" required>
     </div>
+
     <div class="mb-3">
         <label>Profile Picture</label>
         <input type="file" name="photo" class="form-control" required>
