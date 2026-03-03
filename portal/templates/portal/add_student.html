@@ -1,0 +1,95 @@
+{% extends 'portal/base.html' %} {% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 col-lg-6">
+    <div class="card shadow-lg border-0 rounded-4">
+      <div class="card-header bg-success text-white py-3 rounded-top-4">
+        <h4 class="card-title mb-0 text-center">
+          <i class="bi bi-person-plus-fill me-2"></i>
+          Add New Student
+        </h4>
+      </div>
+      <div class="card-body p-4 p-md-5">
+        <form
+          method="POST"
+          action="{% url 'add_student' %}"
+          class="needs-validation"
+          novalidate
+        >
+          {% csrf_token %}
+
+          <div class="mb-4">
+            <label for="name" class="form-label fw-bold">Full Name</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-person"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="name"
+                name="name"
+                required
+                placeholder="e.g. Rohan Wahkhade"
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="course" class="form-label fw-bold">Course</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-book"></i>
+              </span>
+             
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                id="course"
+                name="course"
+                required
+                placeholder="e.g. Computer Science, Django Development, etc."
+              />
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <label for="email" class="form-label fw-bold">Email Address</label>
+            <div class="input-group">
+              <span class="input-group-text bg-light">
+                <i class="bi bi-envelope"></i>
+              </span>
+              <input
+                type="email"
+                class="form-control form-control-lg"
+                id="email"
+                name="email"
+                required
+                placeholder="e.g. person@example.com"
+              />
+            </div>
+          </div>
+
+          <div class="d-grid mt-5">
+            <button
+              type="submit"
+              class="btn btn-success btn-lg py-3 fw-bold shadow-sm"
+            >
+              <i class="bi bi-check-circle me-2"></i>
+              Save Student Record
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer bg-light text-center py-3">
+        <a
+          href="{% url 'student_list' %}"
+          class="text-secondary text-decoration-none"
+        >
+          <i class="bi bi-arrow-left"></i>
+          Cancel and go back
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

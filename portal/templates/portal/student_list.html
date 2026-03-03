@@ -1,0 +1,83 @@
+{% extends 'portal/base.html' %} {% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+  <h2 class="text-primary">
+    <i class="bi bi-people-fill"></i>
+    Students List
+  </h2>
+  <a href="{% url 'add_student' %}" class="btn btn-success">
+    + Add New Student
+  </a>
+</div>
+
+<!-- Search Form -->
+<div class="card shadow-sm mb-4 border-0 bg-light">
+  <div class="card-body">
+    <form method="GET" action="{% url 'search_student' %}" class="d-flex w-100">
+      <input
+        type="search"
+        name="q"
+        class="form-control me-2"
+        placeholder="Search by ID, Name, or Email"
+        aria-label="Search"
+        value="{{ query }}"
+      />
+      <button type="submit" class="btn btn-outline-success px-4">Search</button>
+      {% if query %}
+      <a href="{% url 'student_list' %}" class="btn btn-outline-secondary ms-2">
+        Clear
+      </a>
+      {% endif %}
+    </form>
+  </div>
+</div>
+
+<div class="card shadow-sm border-0">
+  <div class="card-body p-0">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped mb-0 align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" class="ps-4">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Email</th>
+            <th scope="col" class="text-center pe-4">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for student in students %}
+          <tr>
+            <td class="ps-4 fw-bold">{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>
+              <span class="badge bg-info text-dark">{{ student.course }}</span>
+            </td>
+            <td>
+              <a href="mailto:{{ student.email }}" class="text-decoration-none">
+                {{ student.email }}
+              </a>
+            </td>
+            <td class="text-center pe-4">
+              <a
+                href="{% url 'student_detail' student.id %}"
+                class="btn btn-sm btn-outline-primary"
+              >
+                View Details
+              </a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr>
+            <td colspan="5" class="text-center py-5 text-muted">
+              <i class="bi bi-inbox fs-1 d-block mb-3"></i>
+              {% if query %} No students found matching "{{ query }}" {% else %}
+              No students in the database yet. {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
