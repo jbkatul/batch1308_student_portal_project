@@ -1,0 +1,13 @@
+{% extends 'portal/base.html' %}
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        {% if student.photo %}
+            <img src="{{ student.photo }}" width="120" height="100" class="mb-3 rounded-circle">
+        {% endif %}
+        <h4>{{ student.name }}</h4>
+        <p>Course: {{ student.course }}</p>
+        <p>Email: {{ student.email }}</p>
+    </div>
+</div>
+{% endblock %}
