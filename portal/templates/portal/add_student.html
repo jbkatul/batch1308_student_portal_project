@@ -1,0 +1,34 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div style="background: linear-gradient(to right, #d2fff5, #fc9fdd); padding:10px; border-radius:10px">
+    <h2>Add student</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="course">Course:</label>
+            <input type="text" class="form-control" id="course" name="course" required> 
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+        </div><br>
+
+        <style>
+            .btn-primary {
+                background: linear-gradient(to right, #cd66ea, #a24b7c);
+                border: none;
+            }
+        </style>
+        <button style="margin-top: 10px;" class="btn btn-primary" type="submit">Add Student</button>
+    </form>
+</div>
+{% endblock %}
