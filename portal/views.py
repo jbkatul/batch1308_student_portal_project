@@ -1,4 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .models import Student
+
 
 students = [
     {
@@ -119,4 +124,39 @@ def delete_student(request, id):
     if request.method == "POST":
         students = [s for s in students if s["id"] != id]
 
-    return redirect("student_list")
+    return redirect("student_list")   
+
+
+def register_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        if User.objects.filter(username=username).exists():
+            return render(request, "portal/register.html", {"error": "Username already exists"})
+
+        User.objects.create_user(username=username, password=password)
+        return redirect("login")
+
+    return render(request, "portal/register.html")
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        user = authenticate(request, username=username, password=password)
+
+        if user:
+            login(request, user)
+            return redirect("student_list")
+        else:
+            return render(request, "portal/login.html", {"error": "Invalid credentials"})
+
+    return render(request, "portal/login.html")  
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, "portal/logout.html")
