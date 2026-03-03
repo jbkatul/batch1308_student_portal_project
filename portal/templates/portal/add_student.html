@@ -1,0 +1,72 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+
+<div class="cover-bg">
+    <div class="auth-card">
+
+        <h3 class="text-center mb-4">Add Student</h3>
+
+        {% if message %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="alert alert-danger text-center">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{% url 'add_student' %}">
+            {% csrf_token %}
+
+            <!-- Student Name -->
+            <input type="text"
+                   name="name"
+                   class="form-control mb-3"
+                   placeholder="Student Name"
+                   required>
+
+            <!-- Course -->
+            <select name="course"
+                    class="form-control mb-3"
+                    required>
+                <option value="">Select Course</option>
+                <option>Python</option>
+                <option>Java</option>
+                <option>AI & ML</option>
+                <option>Software Testing</option>
+            </select>
+
+            <!-- Class (ADD HERE 👇) -->
+            <select name="class"
+                    class="form-control mb-3"
+                    required>
+                <option value="">Select Class</option>
+                <option>FY</option>
+                <option>SY</option>
+                <option>TY</option>
+            </select>
+
+            <!-- Email -->
+            <input type="email"
+                   name="email"
+                   class="form-control mb-3"
+                   placeholder="Student Email"
+                   required>
+
+            <button type="submit"
+                    class="btn main-btn btn-block">
+                Add Student
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

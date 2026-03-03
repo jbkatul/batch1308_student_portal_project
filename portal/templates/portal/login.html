@@ -1,0 +1,46 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="cover-bg">
+    <div class="auth-card mx-auto">
+
+        <h3 class="text-center mb-4">Login</h3>
+        {% if error %}
+<div class="alert alert-danger text-center">
+    {{ error }}
+</div>
+{% endif %}
+
+        {% if message %}
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+
+            <input type="text"
+                   name="userid"
+                   class="form-control mb-3"
+                   placeholder="Username"
+                   required>
+
+            <input type="password"
+                   name="password"
+                   class="form-control mb-3"
+                   placeholder="Password"
+                   required>
+
+            <button type="submit"
+                    class="btn main-btn btn-block">
+                Sign In
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

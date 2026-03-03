@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,14 @@
     <title>{% block title %}Student Portal{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap -->
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+          <link rel="stylesheet"
+ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
 <body>
@@ -24,42 +31,33 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-            </li>
+    <a class="nav-link" href="{% url 'home' %}">Home</a>
+</li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'student_list' %}">Student List</a>
-            </li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'student_list' %}">Student List</a>
+</li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'add_student' %}">Add Student</a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">About</a>
+</li>
 
         </ul>
-
-        <!-- POST Search Form Example -->
-        <form method="POST" class="form-inline">
-            {% csrf_token %}
-            <input class="form-control mr-2"
-                   type="search"
-                   name="search"
-                   placeholder="Search Student">
-            <button class="btn btn-light" type="submit">
-                Search
-            </button>
-        </form>
-
     </div>
 </nav>
 
-<!-- MAIN CONTENT -->
-<div class="container mt-5">
+<!-- CONTENT -->
+<div class="container-fluid p-0">
     {% block content %}
     {% endblock %}
 </div>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white text-center p-2 mt-5">
+<footer class="bg-dark text-white text-center p-3 mt-5">
     © 2026 Student Portal | Developed by You 🚀
 </footer>
 

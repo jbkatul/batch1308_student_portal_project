@@ -1,0 +1,57 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+
+<div class="cover-bg">
+    <div class="auth-card">
+
+        <h3 class="text-center">Register</h3>
+        {% if error %}
+<div class="alert alert-danger text-center">
+    {{ error }}
+</div>
+{% endif %}
+
+{% if message %}
+<div class="alert alert-success text-center">
+    {{ message }}
+</div>
+{% endif %}
+
+        <form method="POST" action="{% url 'register' %}">
+
+            <input type="text" name="name" class="form-control mb-3" placeholder="Full Name">
+            <input type="email" name="email" class="form-control mb-3" placeholder="Email">
+            <input type="password" name="password" class="form-control mb-3" placeholder="Password">
+            <input type="text" name="mobile" class="form-control mb-3" placeholder="Mobile">
+            <input type="date" name="dob" class="form-control mb-3">
+
+            <select name="class" class="form-control mb-3">
+                <option>FY</option>
+                <option>SY</option>
+                <option>TY</option>
+            </select>
+
+            <div class="mb-3 text-white">
+                <label>
+                    <input type="radio" name="gender" value="Male">
+                    <i class="fas fa-mars"></i> Male
+                </label>
+
+                <label class="ml-3">
+                    <input type="radio" name="gender" value="Female">
+                    <i class="fas fa-venus"></i> Female
+                </label>
+            </div>
+
+            <button type="submit" class="btn main-btn btn-block">
+                Register
+            </button>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
