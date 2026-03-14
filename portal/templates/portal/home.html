@@ -1,0 +1,35 @@
+{% extends 'portal/base.html' %} {% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8 text-center">
+    <div class="card shadow-sm border-0">
+      <div class="card-body p-5">
+        <img
+          src="https://via.placeholder.com/800x400?text=Welcome+to+Student+Portal"
+          class="img-fluid rounded mb-4"
+          alt="Welcome Image"
+        />
+        <h1 class="display-5 fw-bold text-primary mb-3">
+          Welcome to the Student Portal of Kiran Academy!
+        </h1>
+        <p class="lead text-muted mb-4">
+          This portal is designed to give you a "under-the-hood" look at web development. By using Python and Django. You can explore how to create dynamic web applications, manage databases, and build interactive user interfaces. Whether you're a student looking to learn or an educator seeking to enhance your curriculum, this portal provides a practical example of how web technologies work together to create a seamless user experience.
+        </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <a
+            href="{% url 'student_list' %}"
+            class="btn btn-primary btn-lg px-4 gap-3"
+          >
+            View Students
+          </a>
+          <a
+            href="{% url 'add_student' %}"
+            class="btn btn-outline-secondary btn-lg px-4"
+          >
+            Add New Student
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

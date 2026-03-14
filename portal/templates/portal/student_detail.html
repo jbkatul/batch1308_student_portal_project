@@ -1,0 +1,68 @@
+{% extends 'portal/base.html' %} {% block content %}
+<div class="row justify-content-center mt-5">
+  <div class="col-md-8">
+    {% if error_message %}
+    <div
+      class="alert alert-danger shadow-sm border-0 d-flex align-items-center mb-4"
+      role="alert"
+    >
+      <i class="bi bi-exclamation-triangle-fill flex-shrink-0 me-3 fs-4"></i>
+      <div class="ms-2">
+        <h4 class="alert-heading mb-1">Error!</h4>
+        <p class="mb-0">{{ error_message }}</p>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="{% url 'student_list' %}" class="btn btn-outline-secondary px-4">
+        <i class="bi bi-arrow-left"></i>
+        Back to Students
+      </a>
+    </div>
+    {% else %}
+    <div class="card shadow border-0 rounded-3">
+      <div class="card-header bg-primary text-white py-3">
+        <h4 class="card-title mb-0 d-flex align-items-center">
+          <i class="bi bi-person-badge me-2"></i>
+          Student Profile
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <div class="row mb-3">
+          <div class="col-sm-4 text-muted fw-bold">ID Number:</div>
+          <div class="col-sm-8">{{ student.id }}</div>
+        </div>
+        <hr class="text-muted" />
+        <div class="row mb-3">
+          <div class="col-sm-4 text-muted fw-bold">Full Name:</div>
+          <div class="col-sm-8 fs-5">{{ student.name }}</div>
+        </div>
+        <hr class="text-muted" />
+        <div class="row mb-3">
+          <div class="col-sm-4 text-muted fw-bold">Enrolled Course:</div>
+          <div class="col-sm-8">
+            <span class="badge bg-info text-dark fs-6">
+              {{ student.course }}
+            </span>
+          </div>
+        </div>
+        <hr class="text-muted" />
+        <div class="row mb-3">
+          <div class="col-sm-4 text-muted fw-bold">Email Address:</div>
+          <div class="col-sm-8">
+            <a href="mailto:{{ student.email }}" class="text-decoration-none">
+              <i class="bi bi-envelope-fill me-1"></i>
+              {{ student.email }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer bg-light py-3 d-flex justify-content-between">
+        <a href="{% url 'student_list' %}" class="btn btn-outline-secondary">
+          Back to List
+        </a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
