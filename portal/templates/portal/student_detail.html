@@ -1,0 +1,13 @@
+{% extends "portal/base.html" %}
+{% block content %}
+
+<div class="card p-4 shadow">
+    <h3>{{ student.name }}</h3>
+    <p><strong>Department:</strong> {{ student.department }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+    <p><strong>Phone:</strong> {{ student.phone }}</p>
+    <p><strong>Grade:</strong> {{ student.grade }}</p>
+    <a href="/students/" class="btn btn-secondary mt-3">Back</a>
+</div>
+
+{% endblock %}
