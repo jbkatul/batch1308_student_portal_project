@@ -14,7 +14,13 @@ The home screen welcomes users to the portal and provides a clear entry point to
 
 * **Feature**: Clean, centralized call-to-action buttons for navigation.
 * **Technology**: High-level Django template rendering.
+## 2. Students Dashboard
+This section displays all currently registered students in a structured format.
 
+<img src="G:\Pictures\Screenshots\Screenshot (139).png" alt="Students List" width="100%">
+
+* [cite_start]**Feature**: Responsive table showing ID, Name, Course, and Email[cite: 327, 328].
+* **Actions**: Individual "View Details" buttons for every record.
 ---
 
 ## 2. Students Dashboard
