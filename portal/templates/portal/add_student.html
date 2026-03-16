@@ -1,0 +1,108 @@
+{% extends 'portal/base.html' %}
+
+{% block title %}
+Add Student | Student Portal
+{% endblock %}
+
+{% block content %}
+
+<style>
+    /* Page heading & card */
+    .add-card {
+        border-radius: 10px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .add-header {
+        background-color: #2c4a78;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    /* Button style */
+    .yellow-btn {
+        background-color: yellow;
+        color: black;
+        font-weight: bold;
+        border: none;
+    }
+
+    .yellow-btn:hover {
+        background-color: gold;
+        color: black;
+    }
+
+    label {
+        font-weight: 600;
+        color: #2c4a78;
+    }
+</style>
+
+<div class="container" style="margin-top: 60px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card add-card">
+                <div class="add-header">
+                    <h4>Add Student</h4>
+                </div>
+
+                <div class="card-body">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                placeholder="Enter student name"
+                                required>
+                        </div>
+
+                        <!-- Course -->
+                        <div class="mb-3">
+                            <label>Course</label>
+                            <input
+                                type="text"
+                                name="course"
+                                class="form-control"
+                                placeholder="Enter course name"
+                                required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                                placeholder="Enter email address"
+                                required>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button type="submit"
+                                style="background-color:#2C4A78; color:white; font-weight:600; border:none; padding:10px;">
+                                Add Student
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
