@@ -61,3 +61,6 @@ def add_student(request):
         print(name, course, email)
 
     return render(request, "portal/add_student.html")
+
+def about(request):
+    return render(request, "portal/about.html")
